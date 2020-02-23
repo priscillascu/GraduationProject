@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<SimscapeMultibodyImportXML version="2.0" xmlns="urn:mathworks:SimscapeMultibody:import" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<Created by="" on="01/18/20||23:01:51" using="Simscape Multibody Link Version 4.8" from="SolidWorks 24.1.0"/>
+<ModelUnits mass="kilogram" length="millimeter"/>
+<DataUnits mass="kilogram" length="meter"/>
+<RootAssembly name="CR1400 2019.8.8WF－SW" uid="CR1400 2019.8.8WF－SW" version="303">
+<AssemblyFile name="CR1400 2019.8.8WF－SW.SLDASM" type="SolidWorks Assembly"/>
+<InstanceTree>
+<Instance name="CR1405 小臂组件-wf-1" uid="CR1405 小臂组件-wf-1" entityUid="CR1405 小臂组件-wf*:*默认">
+<Transform>
+<Rotation>-0.98533382194382846 -0.15259364645859938 -0.076370402604907489 0.12340721859807124 -0.94634593349435325 0.29866374496511799 -0.11784700985368926 0.28485883033385007 0.95129781301618432</Rotation>
+<Translation>-0.92493614957348569 0.058417606952100944 1.1768513403806453</Translation>
+</Transform>
+</Instance>
+<Instance name="CR1402 腰部组件-wf-1" uid="CR1402 腰部组件-wf-1" entityUid="CR1402 腰部组件-wf*:*默认">
+<Transform>
+<Rotation>-0.9922480414888577 -0.1242731835977763 0 0.1242731835977763 -0.9922480414888577 0 0 0 1</Rotation>
+<Translation>-0.053756168866106624 0.020689490403768083 0.19853971698768802</Translation>
+</Transform>
+</Instance>
+<Instance name="CR1404 肘部组件-wf-1" uid="CR1404 肘部组件-wf-1" entityUid="CR1404 肘部组件-wf*:*默认">
+<Transform>
+<Rotation>0.98533382194382857 0.12427318359777603 -0.11693346472264075 -0.12340721859807151 0.99224804148885737 0.014645223091996536 0.11784700985368878 -1.507908204630793e-016 0.99303176297062346</Rotation>
+<Translation>-0.14660807567487677 0.14368192471397523 1.4034207531328247</Translation>
+</Transform>
+</Instance>
+<Instance name="CR1403 大臂组件-wf-1" uid="CR1403 大臂组件-wf-1" entityUid="CR1403 大臂组件-wf*:*默认">
+<Transform>
+<Rotation>-0.1242731835977757 0.95978797559313223 -0.25172051514588689 -0.99224804148885748 -0.12020775281838857 0.031526501929006738 1.5292582763208565e-016 0.25368708691849162 0.96728633916271656</Rotation>
+<Translation>-0.070723265482567743 0.13241064250913376 0.40240717938807735</Translation>
+</Transform>
+</Instance>
+<Instance name="CR1401 底座组件3-wf-1" uid="CR1401 底座组件3-wf-1" grounded="true" entityUid="CR1401 底座组件3-wf*:*默认">
+<Transform>
+<Rotation>1 0 0 0 1 0 0 0 1</Rotation>
+<Translation>0.062068471211292775 0.032123156153212866 0</Translation>
+</Transform>
+</Instance>
+<Instance name="CR1806 腕部组件-1" uid="CR1806 腕部组件-1" entityUid="CR1806 腕部组件*:*默认">
+<Transform>
+<Rotation>-0.62955411607215872 0.1525936464585991 0.76182464780096937 -0.12910708453397698 0.94634593349435325 -0.29624438371357797 -0.76615466823595046 -0.28485883033385007 -0.57607505684684124</Rotation>
+<Translation>-1.0296282307392364 0.1453254372736138 1.5902472850419498</Translation>
+</Transform>
+<VisualProperties>
+<Ambient r="0.20000000000000001" g="0.20000000000000001" b="0.20000000000000001" a="1"/>
+<Diffuse r="0.20000000000000001" g="0.20000000000000001" b="0.20000000000000001" a="1"/>
+<Specular r="0.10000000000000001" g="0.10000000000000001" b="0.10000000000000001" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.3125</Shininess>
+</VisualProperties>
+</Instance>
+</InstanceTree>
+<Constraints>
+<Coincident name="重合1">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>CR1401 底座组件3-wf-1</Uid>
+</InstancePath>
+<Position>-0.11582464007739941 -0.011433665749444773 0.58874357861305393</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>CR1402 腰部组件-wf-1</Uid>
+</InstancePath>
+<Position>-0.019097433767188463 -0.0033978012384083822 0.39020386162536591</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="同心2">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>CR1402 腰部组件-wf-1</Uid>
+</InstancePath>
+<Position>0.16999999999999907 -0.026499999999999996 0.67520386162536639</Position>
+<Axis>0 -1.0000000000000002 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>CR1403 大臂组件-wf-1</Uid>
+</InstancePath>
+<Position>0.017246539256489085 -0.015152155629550926 0.49125092147841931</Position>
+<Axis>1.0000000000000002 0 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="同心3">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>CR1403 大臂组件-wf-1</Uid>
+</InstancePath>
+<Position>0.020246539256489102 -0.015152155629550898 1.1052509214784196</Position>
+<Axis>1.0000000000000002 0 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>CR1404 肘部组件-wf-1</Uid>
+</InstancePath>
+<Position>-0.20925549738008789 -0.03999999999999998 0.089520572959214784</Position>
+<Axis>0 -1 -1.6540151891496695e-016</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="重合4">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>CR1404 肘部组件-wf-1</Uid>
+</InstancePath>
+<Position>-0.47525549740980721 -0.11049988672594428 0.28952050041854771</Position>
+<Axis>-1 0 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>CR1405 小臂组件-wf-1</Uid>
+</InstancePath>
+<Position>-0.30783577388737227 0.13250995986781267 0.34869425252489772</Position>
+<Axis>-1 0 0</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="同心4">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>CR1404 肘部组件-wf-1</Uid>
+</InstancePath>
+<Position>-0.40025549740980748 -0.11049988672594428 0.28952050041854793</Position>
+<Axis>-1 0 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>CR1405 小臂组件-wf-1</Uid>
+</InstancePath>
+<Position>-0.30783577388737243 0.053989959867812798 0.42721425252489786</Position>
+<Axis>1 0 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Coincident name="重合13">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>CR1401 底座组件3-wf-1</Uid>
+</InstancePath>
+<Position>-0.11582464007739941 -0.011433665749444773 0.58874357861305393</Position>
+<Axis>0 0 1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>CR1402 腰部组件-wf-1</Uid>
+</InstancePath>
+<Position>-0.019097433767188463 -0.0033978012384083822 0.39020386162536591</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Coincident>
+<Concentric name="同心10">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>CR1401 底座组件3-wf-1</Uid>
+</InstancePath>
+<Position>-0.11582464007739941 -0.011433665749444773 1.095157586009472</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>CR1402 腰部组件-wf-1</Uid>
+</InstancePath>
+<Position>0 0 0.41020386162536593</Position>
+<Axis>0 0 -1</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Concentric name="同心11">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>CR1402 腰部组件-wf-1</Uid>
+</InstancePath>
+<Position>0.16999999999999907 -0.026499999999999996 0.67520386162536639</Position>
+<Axis>0 -1.0000000000000002 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="circle">
+<InstancePath>
+<Uid>CR1403 大臂组件-wf-1</Uid>
+</InstancePath>
+<Position>0.027246539256489108 -0.015152155629550926 0.49125092147841931</Position>
+<Axis>1.0000000000000002 0 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Distance name="距离4">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>CR1402 腰部组件-wf-1</Uid>
+</InstancePath>
+<Position>0.27057305447610019 -0.042500000000000017 0.44694491690266591</Position>
+<Axis>0 -1.0000000000000002 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>CR1403 大臂组件-wf-1</Uid>
+</InstancePath>
+<Position>-0.0099534607435109168 -0.015152155629550926 0.49125092147841931</Position>
+<Axis>-1.0000000000000002 0 0</Axis>
+</ConstraintGeometry>
+</Distance>
+<Distance name="距离5">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>CR1404 肘部组件-wf-1</Uid>
+</InstancePath>
+<Position>-0.20925549738008789 -0.050000000000000142 0.089520572959214784</Position>
+<Axis>0 1 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>CR1403 大臂组件-wf-1</Uid>
+</InstancePath>
+<Position>-0.016953460743510923 -0.015152155629550926 0.49125092147841931</Position>
+<Axis>-1.0000000000000002 0 0</Axis>
+</ConstraintGeometry>
+</Distance>
+<Concentric name="同心13">
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>CR1405 小臂组件-wf-1</Uid>
+</InstancePath>
+<Position>0.065164226112627843 -0.010010040132187314 0.42721425252489786</Position>
+<Axis>0 -1 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="cylinder">
+<InstancePath>
+<Uid>CR1806 腕部组件-1</Uid>
+</InstancePath>
+<Position>-2.2204460492503131e-016 0.18552186130069781 -2.2204460492503131e-016</Position>
+<Axis>-1.1102230246251565e-016 -1.0000000000000002 0</Axis>
+</ConstraintGeometry>
+</Concentric>
+<Distance name="距离6">
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>CR1806 腕部组件-1</Uid>
+</InstancePath>
+<Position>0.097499999999999809 -0.064000000000000057 -0.070701091971854035</Position>
+<Axis>-2.7755575615628914e-016 -1 0</Axis>
+</ConstraintGeometry>
+<ConstraintGeometry geomType="plane">
+<InstancePath>
+<Uid>CR1405 小臂组件-wf-1</Uid>
+</InstancePath>
+<Position>0.11675959591136742 0.11948995986781263 0.41504750690745684</Position>
+<Axis>0 -1 0</Axis>
+</ConstraintGeometry>
+</Distance>
+</Constraints>
+</RootAssembly>
+<Assemblies>
+</Assemblies>
+<Parts>
+<Part name="CR1401 底座组件3-wf" uid="CR1401 底座组件3-wf*:*默认" version="132">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="CR1401 底座组件3-wf.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>120.09376506644988</Mass>
+<CenterOfMass>-0.034139081693386017 -0.011775434059298264 0.49529251332108865</CenterOfMass>
+<Inertia>1.2258415814796668 2.3530292049382617 3.0517697152374406 0.00040937095044888967 0.020299267797541074 0.0091538935480616618</Inertia>
+</MassProperties>
+<GeometryFile name="CR1401 底座组件3-wf_默认_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.40000000596046448</Shininess>
+</VisualProperties>
+</Part>
+<Part name="CR1402 腰部组件-wf" uid="CR1402 腰部组件-wf*:*默认" version="4937">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="CR1402 腰部组件-wf.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>91.46742599797274</Mass>
+<CenterOfMass>0.041112926248925229 -0.0096560802858172128 0.50583456951448491</CenterOfMass>
+<Inertia>1.9627345061226189 2.604806240472469 1.879507815881386 0.058957330846854984 -0.78412289244774247 -0.0028790724336223111</Inertia>
+</MassProperties>
+<GeometryFile name="CR1402 腰部组件-wf_默认_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.40000000596046448</Shininess>
+</VisualProperties>
+</Part>
+<Part name="CR1403 大臂组件-wf" uid="CR1403 大臂组件-wf*:*默认" version="105">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="CR1403 大臂组件-wf.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>25.854095526361824</Mass>
+<CenterOfMass>-0.0095049895692034536 0.0004197391492182477 0.78094073624470339</CenterOfMass>
+<Inertia>1.5382657404520752 1.4917350637236482 0.08024941832122999 -0.003418296347522754 0.021180594516188044 0.004680515764283963</Inertia>
+</MassProperties>
+<GeometryFile name="CR1403 大臂组件-wf_默认_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.40000000596046448</Shininess>
+</VisualProperties>
+</Part>
+<Part name="CR1404 肘部组件-wf" uid="CR1404 肘部组件-wf*:*默认" version="4596">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="CR1404 肘部组件-wf.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>34.531766299390561</Mass>
+<CenterOfMass>-0.32887279149052967 -0.11474483918098556 0.21069963672180311</CenterOfMass>
+<Inertia>0.52446557260586968 0.73236553459530185 0.51463961316216178 -0.056641816223792746 0.30329912935673076 0.057993898742909659</Inertia>
+</MassProperties>
+<GeometryFile name="CR1404 肘部组件-wf_默认_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.40000000596046448</Shininess>
+</VisualProperties>
+</Part>
+<Part name="CR1405 小臂组件-wf" uid="CR1405 小臂组件-wf*:*默认" version="4276">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="CR1405 小臂组件-wf.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>16.865972767053126</Mass>
+<CenterOfMass>-0.10516966311204695 0.047525823330545079 0.45656430906584905</CenterOfMass>
+<Inertia>0.084654168245494363 0.35548325308117124 0.39171048450919799 -0.0028735559189478621 0.045090866312718095 0.01685245190482066</Inertia>
+</MassProperties>
+<GeometryFile name="CR1405 小臂组件-wf_默认_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.40000000596046448</Shininess>
+</VisualProperties>
+</Part>
+<Part name="CR1806 腕部组件" uid="CR1806 腕部组件*:*默认" version="2090">
+<ModelUnits mass="kilogram" length="millimeter"/>
+<PartFile name="CR1806 腕部组件.SLDPRT" type="SolidWorks Part"/>
+<MassProperties>
+<Mass>3.8797454961922262</Mass>
+<CenterOfMass>0.0515575658307122 -0.003562852224549857 -4.3067442016925719e-005</CenterOfMass>
+<Inertia>0.0098966460782527951 0.010025927190006986 0.011728543379556847 3.0260983097869311e-005 2.8072719545672087e-005 -0.00080082417869195284</Inertia>
+</MassProperties>
+<GeometryFile name="CR1806 腕部组件_默认_sldprt.STEP" type="STEP"/>
+<VisualProperties>
+<Ambient r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Diffuse r="0.792156862745098" g="0.81960784313725488" b="0.93333333333333335" a="1"/>
+<Specular r="0.396078431372549" g="0.40980392156862744" b="0.46666666666666667" a="1"/>
+<Emissive r="0" g="0" b="0" a="1"/>
+<Shininess>0.40000000596046448</Shininess>
+</VisualProperties>
+</Part>
+</Parts>
+</SimscapeMultibodyImportXML>
