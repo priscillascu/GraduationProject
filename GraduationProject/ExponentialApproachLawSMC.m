@@ -1,7 +1,6 @@
 % When I wrote this, only God and I understood what I was doing
 % Now, only god knows
-% 程序说明，本程序为使用改进趋近率的鲁棒滑模控制器
-% 针对干扰上界已知的情况可以有效抑制干扰
+% 程序说明，本程序为使用指数趋近率的鲁棒滑模控制器
 function [sys,x0,str,ts] = ExponentialApproachLawSMC(t, x, u, flag)
 switch flag,
   case 0,
@@ -489,10 +488,11 @@ end
 
 %%
 %指数趋近率滑模控制器ds = -eps*sat(s) - ks，s = alpha*e + de
-%通过增大eps、k和alpha，可以改善系统的响应速度和跟踪误差，过大会爆炸
+%通过增大k和alpha，可以改善系统的响应速度和跟踪误差，过大会爆炸
 %增大饱和函数sat的边界层delta，可以减小系统的抖振
+%eps用于补偿不确定项E(t)，但较大的eps会造成抖振，后继可采用模糊控制动态调整
 alpha = [68; 63; 65; 125; 208; 208];
-eps = [18; 18; 18; 20; 20; 20];
+eps = [8; 8; 8; 10; 10; 10];
 k = [21; 30; 18; 18; 33; 28];
 s = alpha.*e + de;
 %采用饱和函数sat代替符号函数sign
@@ -505,6 +505,7 @@ else
 end
 
 tol = M*(alpha.*de + ddR + eps.*sats + k.*s) + N*dth';
+% sds = -eps.*s.*sats - k.*(s.^2)  %用于设计模糊系统的隶属函数
 
 sys(1) = tol(1);
 sys(2) = tol(2);
