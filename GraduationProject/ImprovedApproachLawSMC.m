@@ -1,7 +1,6 @@
 % When I wrote this, only God and I understood what I was doing
 % Now, only god knows
 % 程序说明，本程序为使用改进趋近率的鲁棒滑模控制器
-% 针对干扰上界已知的情况可以有效抑制干扰
 function [sys,x0,str,ts] = ImprovedApproachLawSMC(t, x, u, flag)
 switch flag,
   case 0,
@@ -41,28 +40,28 @@ simStateCompliance = 'UnknownSimState';
 function sys=mdlOutputs(t,x,u)   %计算输出子函数
 %%给定
 %角度给定
-R1 = sin(0.5*t);;
-R2 = sin(0.5*t);
-R3 = sin(t);
-R4 = sin(t);
-R5 = sin(t);
-R6 = sin(t);
+R1 = cos(0.5*t);
+R2 = cos(0.5*t);
+R3 = cos(t);
+R4 = cos(t);
+R5 = cos(t);
+R6 = cos(t);
 R = [R1; R2; R3; R4; R5; R6];
 %位置给定的导数，即速度
-dR1 = 0.5*cos(0.5*t);
-dR2 = 0.5*cos(0.5*t);
-dR3 = cos(t);
-dR4 = cos(t);
-dR5 = cos(t);
-dR6 = cos(t);
+dR1 = -0.5*sin(0.5*t);
+dR2 = -0.5*sin(0.5*t);
+dR3 = -sin(t);
+dR4 = -sin(t);
+dR5 = -sin(t);
+dR6 = -sin(t);
 dR = [dR1; dR2; dR3; dR4; dR5; dR6];
 %位置给定的二阶导数，即加速度
-ddR1 = -0.25*sin(0.5*t);
-ddR2 = -0.25*sin(0.5*t);
-ddR3 = -sin(t);
-ddR4 = -sin(t);
-ddR5 = -sin(t);
-ddR6 = -sin(t);
+ddR1 = -0.25*cos(0.5*t);
+ddR2 = -0.25*cos(0.5*t);
+ddR3 = -cos(t);
+ddR4 = -cos(t);
+ddR5 = -cos(t);
+ddR6 = -cos(t);
 ddR = [ddR1; ddR2; ddR3; ddR4; ddR5; ddR6];
 %%
 %角度输入
@@ -488,19 +487,15 @@ for i = 1 : 6
 end
 
 %%
-%滑模控制器改进趋近率为ds = -eps*sign(s) -k1*abs(s)^alpha*sign(s) -
-%k2*abs(s)^beta*sign(s)
-%                                                      
-c = [32; 35; 50; 55; 70; 60];
-s = c.*e + de;
-eps = 0.5;
-k1 = [10; 10; 1; 1; 1; 1];
-k2 = [20; 20; 1; 5; 5; 5];
-alpha = [0.9; 0.9; 0.7; 0.9; 0.8; 0.7];
-beta = [2; 2; 3; 3; 3; 3];
-sigma = 0.5;
-%tol = M*(ddR + c.*de + eps*s + k1.*abs(s).^(alpha).*tanh(s/sigma) + k2.*abs(s).^(beta).*tanh(s/sigma) + dc) + N*dth';
-tol = M*(ddR + c.*de + eps*(s.^2).*tanh(s/sigma) + k1.*abs(s).^(alpha).*tanh(s/sigma) + k2.*abs(s).^(beta).*tanh(s/sigma)) + N*dth';
+%指数趋近率滑模控制器ds = -eps*tanh(abs(e))*sign(s) - ks，s = alpha*e + de
+%通过增大eps、k和alpha，可以改善系统的响应速度和跟踪误差，过大会爆炸
+%减小eps可以改善抖振，但会影响快速性
+alpha = [50; 60; 53; 50; 125; 105];
+eps = [0.01; 0.01; 0.01; 0.01; 0.01; 0.01];
+k = [50; 70; 55; 50; 152; 95];
+s = alpha.*e + de;
+
+tol = M*(alpha.*de + ddR + eps.*tanh(abs(e)).*sign(s) + k.*s) + N*dth';
 
 sys(1) = tol(1);
 sys(2) = tol(2);
