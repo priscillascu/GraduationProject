@@ -1,0 +1,39 @@
+[System]
+Name='SMC_Fuzzy'
+Type='mamdani'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=5
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='mom'
+
+[Input1]
+Name='sds'
+Range=[-100 100]
+NumMFs=5
+MF1='NB':'zmf',[-95 -60]
+MF2='PS':'trimf',[20 46 80]
+MF3='NS':'trimf',[-80 -46 -20]
+MF4='ZO':'trimf',[-40 0 40]
+MF5='PB':'smf',[65 95]
+
+[Output1]
+Name='dk'
+Range=[-15 15]
+NumMFs=5
+MF1='NB':'zmf',[-14 -10]
+MF2='NS':'trimf',[-12.86 -7.143 0]
+MF3='ZO':'trimf',[-5.714 0 5.714]
+MF4='PS':'trimf',[0 7.143 12.86]
+MF5='PB':'smf',[10 14.29]
+
+[Rules]
+1, 1 (1) : 1
+3, 2 (1) : 1
+4, 3 (1) : 1
+2, 4 (1) : 1
+5, 5 (1) : 1
