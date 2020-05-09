@@ -173,24 +173,24 @@ x_before = [0; 0; 0; 0; 0; 0];
 x = [0.9331; 0.0404; 1.0982; 0; 0; 0];  %初始位置
 
 %针对初始角度为0的时候
-% th = [0; 0; 0; 0; 0; 0]; %初始角度
-% %0时刻的误差值e0
-% e0 = [0; 0; 0; 0; 0; 0];
-% de0 = [0; 0; 0; 0; 0; 0];
-% dde0 = [0; 0; 0; 0; 0; 0];
-% c1 = 1.3*[1; 1; 1; 1; 1; 1];
-% C = [c1];
-% lamda = 1;
-% 
-%针对初始角度不为0的时候
-th = [1; 1; 1; 1; 1; 1]; %初始角度
+th = [0; 0; 0; 0; 0; 0]; %初始角度
 %0时刻的误差值e0
-e0 = [-0.7032; 0.5026; -1.1838; 0; 0; 0];
+e0 = [0; 0; 0; 0; 0; 0];
 de0 = [0; 0; 0; 0; 0; 0];
 dde0 = [0; 0; 0; 0; 0; 0];
-c1 = 1*[1; 1; 1; 1; 1; 1];
+c1 = 1.3*[1; 1; 1; 1; 1; 1];
 C = [c1];
-K = 1.7;
+lamda = 1;
+% 
+%针对初始角度不为0的时候
+% th = [1; 1; 1; 1; 1; 1]; %初始角度
+% %0时刻的误差值e0
+% e0 = [-0.7032; 0.5026; -1.1838; 0; 0; 0];
+% de0 = [0; 0; 0; 0; 0; 0];
+% dde0 = [0; 0; 0; 0; 0; 0];
+% c1 = 1.1*[0.8; 0.8; 0.8; 1; 1; 1];
+% C = [c1];
+% K = 1.7;
 
 
 %P算子中的系数a
@@ -251,17 +251,15 @@ end
 %     xd = [lx(i); ly(i); lz(i); 0; 0; 0];
 %     dxd = [vx(i); vy(i); vz(i); 0; 0; 0];
 %     for j = 1: 1: 1000
-%         Jac = JacobianCross(th);
-%         Tc = myFKSolver(th);
-%         angle = tr2rpy(Tc);
+%         Jac = JacobianCross(th(:, i));
+%         Tc = myFKSolver(th(:, i));
 %         xc(i) = Tc(1, 4);
 %         yc(i) = Tc(2, 4);
 %         zc(i) = Tc(3, 4);
 %         dx = xd - [xc(i); yc(i); zc(i); 0; 0; 0]
-%         %dth(: , i+1) = Jac'*inv(Jac*Jac' + lamda^2 .* diag([1 1 1 1 1 1], 0))*dx;
-%         dth(:, i+1) = inv(Jac)*dx;
-%         th = th + dth(: , i+1)*0.1;
-%         if norm(dx) < 0.00001
+%         dth(: , i) = Jac'*inv(Jac*Jac' + lamda^2 .* diag([1 1 1 1 1 1], 0))*dx;
+%         th(:, i+1) = th(:, i) + dth(: , i)*0.1;
+%         if norm(dx) < 0.0001
 %             disp('求解完成')
 %             break
 %         else
@@ -323,34 +321,34 @@ title('z轴方向位移跟踪曲线','FontName','黑体','FontSize',12)
 % plot(T, dth(5, :));
 % subplot(2, 3, 6);
 % plot(T, dth(6, :));
-
-figure
-subplot(1, 3, 1);
-plot(T, e(1, :),'LineWidth',1.5,'color','k');
-xlabel('时间','FontName','黑体','FontSize',12);
-ylabel('误差值','FontName','黑体','FontSize',12);
-set(gca,'XLim',[min(T) max(T)]);
-axis square
-grid on;
-title('x轴方向跟踪误差','FontName','黑体','FontSize',12)
-
-subplot(1, 3, 2);
-plot(T, e(2, :),'LineWidth',1.5,'color','k');
-xlabel('时间','FontName','黑体','FontSize',12);
-ylabel('误差值','FontName','黑体','FontSize',12);
-set(gca,'XLim',[min(T) max(T)]);
-axis square
-grid on;
-title('y轴方向跟踪误差','FontName','黑体','FontSize',12)
-
-subplot(1, 3, 3);
-plot(T, e(3, :),'LineWidth',1.5,'color','k');
-xlabel('时间','FontName','黑体','FontSize',12);
-ylabel('误差值','FontName','黑体','FontSize',12);
-set(gca,'XLim',[min(T) max(T)]);
-axis square
-grid on;
-title('z轴方向跟踪误差','FontName','黑体','FontSize',12)
+% 
+% figure
+% subplot(1, 3, 1);
+% plot(T, e(1, :),'LineWidth',1.5,'color','k');
+% xlabel('时间','FontName','黑体','FontSize',12);
+% ylabel('误差值','FontName','黑体','FontSize',12);
+% set(gca,'XLim',[min(T) max(T)]);
+% axis square
+% grid on;
+% title('x轴方向跟踪误差','FontName','黑体','FontSize',12)
+% 
+% subplot(1, 3, 2);
+% plot(T, e(2, :),'LineWidth',1.5,'color','k');
+% xlabel('时间','FontName','黑体','FontSize',12);
+% ylabel('误差值','FontName','黑体','FontSize',12);
+% set(gca,'XLim',[min(T) max(T)]);
+% axis square
+% grid on;
+% title('y轴方向跟踪误差','FontName','黑体','FontSize',12)
+% 
+% subplot(1, 3, 3);
+% plot(T, e(3, :),'LineWidth',1.5,'color','k');
+% xlabel('时间','FontName','黑体','FontSize',12);
+% ylabel('误差值','FontName','黑体','FontSize',12);
+% set(gca,'XLim',[min(T) max(T)]);
+% axis square
+% grid on;
+% title('z轴方向跟踪误差','FontName','黑体','FontSize',12)
 
 T2 = 0:0.1:10.1;
 figure
